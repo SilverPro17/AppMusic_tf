@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="file_name">File Name</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="duration">duration</string>
+    <string name="previous">previous</string>
+    <string name="next">next</string>
+    <string name="prev">prev</string>
+    <string name="playpause">Playpause</string>
+    <string name="previous2">previous</string>
+    <string name="next2">next</string>
+    <string name="playpause2">Playpause</string>
+    <string name="prev2">prev</string>
+    <string name="leng">leng.</string>
+    <string name="artist_name2">Artist Name</string>
+    <string name="file_name2">File Name</string>
+    <string name="album">Album</string>
+    <string name="artist">Artist</string>
+    <string name="_1_28">1:28</string>
+</resources>
