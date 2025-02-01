@@ -1,100 +1,76 @@
 # Aplicativo de Música
 
-Este é um aplicativo de música desenvolvido para Android que permite aos usuários reproduzir músicas, visualizar a arte do álbum, e controlar a reprodução através de notificações.
+O M_App é um aplicativo Android que permite aos usuários gerenciar e reproduzir suas músicas favoritas. O aplicativo possui uma interface amigável e recursos como detalhes do álbum, controle de reprodução e notificações.
 
-## Estrutura do Projeto
+## Funcionalidades
 
-O projeto é organizado em vários pacotes e classes, cada uma com uma responsabilidade específica:
+- Reproduzir músicas
+- Exibir detalhes do álbum
+- Controle de reprodução com notificações
+- Integração com o Google AdMob para monetização
 
-- **Model**: Contém as classes de modelo que representam os dados do aplicativo.
-  - `Song`: Representa uma música.
-  - `SongManager`: Gerencia a lista de músicas.
+## Tecnologias Utilizadas
+- Android SDK
+- Java
+- Google Mobile Ads SDK(OBS:Implementacao não concluida)
 
-- **View**: Contém as classes de visualização que gerenciam a interface do usuário.
-  - `MainActivity`: A atividade principal do aplicativo.
-  - `CustomVisualizerView`: Uma visualização personalizada para exibir o visualizador de áudio.
-  - `SongsAdapter`: Adapter para exibir a lista de músicas no RecyclerView.
+## Instalação
 
-- **ViewModel**: Contém as classes que gerenciam a lógica de negócios e a interação com o MediaPlayer.
-  - `MediaPlayerManager`: Gerencia a reprodução de músicas.
-  - `MusicService`: Serviço que gerencia a reprodução de música em primeiro plano.
-  - `VisualizerManager`: Gerencia o visualizador de áudio.
-
-- **Notifications**: Contém as classes que gerenciam as notificações.
-  - `MusicNotificationManager`: Gerencia as notificações de música.
-  - `NotificationActionReceiver`: Recebe ações de notificação.
-
-## Configuração do Ambiente de Desenvolvimento
-
-1. **Instalar o Android Studio**:
-   - Baixe e instale o [Android Studio](https://developer.android.com/studio).
-
-2. **Clonar o Repositório**:
-   - Clone este repositório para o seu ambiente de desenvolvimento local.
-
-3. **Abrir o Projeto**:
-   - Abra o Android Studio e selecione "Open an existing Android Studio project".
-   - Navegue até o diretório onde você clonou o repositório e selecione o projeto.
+1. Clone o repositório:
+   
+   ```bash
+   git clone [https://github.com/seu_usuario/m_app.git](https://github.com/SilverPro17/AppMusic_tf)
+   ```
+   
+2. Abra o projeto no Android Studio.
+3. Sincronize o projeto com os arquivos Gradle.
+4. Execute o aplicativo em um dispositivo ou emulador Android.
 
 ## Permissões
 
 O aplicativo requer as seguintes permissões:
 
-- `POST_NOTIFICATIONS`: Permite que o aplicativo envie notificações.
-- `READ_EXTERNAL_STORAGE`: Permite que o aplicativo leia arquivos de armazenamento externo.
-- `FOREGROUND_SERVICE`: Permite que o aplicativo execute serviços em primeiro plano.
-- `FOREGROUND_SERVICE_MEDIA_PLAYBACK`: Permite que o aplicativo execute serviços em primeiro plano para reprodução de mídia.
-- `RECORD_AUDIO`: Permite que o aplicativo grave áudio.
-- `WAKE_LOCK`: Permite que o aplicativo mantenha o dispositivo acordado.
+- WRITE_EXTERNAL_STORAGE: Permite que o aplicativo grave dados no armazenamento externo.
+- FOREGROUND_SERVICE: Permite que o aplicativo execute serviços em primeiro plano.
+- READ_PHONE_STATE: Permite que o aplicativo acesse o estado do telefone.
 
-## Executando o Aplicativo
+## Estrutura do Código
+O código do aplicativo é organizado da seguinte forma:
 
-1. **Conectar um Dispositivo ou Iniciar um Emulador**:
-   - Conecte um dispositivo Android ao seu computador ou inicie um emulador no Android Studio.
+- ApplicationClass: Classe base da aplicação que pode ser usada para inicializar bibliotecas e gerenciar o estado global do aplicativo.
 
-2. **Executar o Aplicativo**:
-   - Clique no botão "Run" (ícone de play verde) no Android Studio para compilar e executar o aplicativo no dispositivo conectado ou no emulador.
+- MainActivity: A atividade principal que serve como ponto de entrada do aplicativo e gerencia a navegação entre os fragmentos.
 
-## Visão Geral das Classes
+- AlbumFragment: Fragmento que exibe uma lista de álbuns disponíveis.
 
-### Model
+- SongsFragment: Fragmento que exibe uma lista de músicas disponíveis.
 
-- **Song**: Representa uma música com atributos como título, artista, caminho do arquivo, URI da arte do álbum e um indicador de reprodução.
-- **SongManager**: Gerencia a lista de músicas, carregando-as do dispositivo.
+- NowPlayingFragmentBottom: Fragmento que exibe informações sobre a música atualmente em reprodução na parte inferior da tela.
 
-### View
+- PlayerActivity: Atividade que controla a reprodução de música, permitindo ao usuário interagir com os controles de reprodução.
 
-- **MainActivity**: A atividade principal do aplicativo que inicializa os componentes, configura a interface do usuário e gerencia a reprodução de músicas.
-- **CustomVisualizerView**: Uma visualização personalizada para exibir o visualizador de áudio.
-- **SongsAdapter**: Adapter para exibir a lista de músicas no RecyclerView.
+- MusicService: Um serviço em primeiro plano que gerencia a reprodução de música, permitindo que a música continue tocando mesmo quando o aplicativo não está em primeiro plano.
 
-### ViewModel
+- NotificationReceiver: Recebe e processa ações de notificação, como reproduzir, pausar ou mudar a música.
 
-- **MediaPlayerManager**: Gerencia a reprodução de músicas, incluindo shuffle e repetição.
-- **MusicService**: Serviço que gerencia a reprodução de música em primeiro plano e atualiza as notificações.
-- **VisualizerManager**: Gerencia o visualizador de áudio.
+- AlbumAdapter: Adaptador que liga os dados dos álbuns à interface do usuário, permitindo que os álbuns sejam exibidos em uma lista.
 
-### Notifications
+- AlbumDetailsAdapter: Adaptador que exibe detalhes de um álbum específico, como faixas e informações adicionais.
 
-- **MusicNotificationManager**: Gerencia as notificações de música.
-- **NotificationActionReceiver**: Recebe ações de notificação e inicia o `MusicService` com a ação apropriada.
+- MusicAdapter: Adaptador que liga os dados das músicas à interface do usuário, permitindo que as músicas sejam exibidas em uma lista.
 
-## Imagens da App
+- MusicFiles: Classe que gerencia a coleta e manipulação de arquivos de música no dispositivo.
 
-...
+- ActionPlaying: Classe que gerencia as ações de reprodução, como play, pause e skip.
 
+## Observações
+- O app nao esta totalmente terminado pois, há alguns reajustes a fazer.
+- Mudei completamente o layout por motivos de comflito, eliminei a parte de customviewholder pois causou complito com o layout em relação ao dispositivo utilizado para testes.
+   
 ## Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Abra uma issue ou envie um pull request com suas sugestões.
 
-## Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Contato
-
-Se você tiver alguma dúvida ou precisar de ajuda, sinta-se à vontade para entrar em contato.
-
----
 
 Este `README.md` fornece uma visão geral completa do projeto, explicando como configurar o ambiente de desenvolvimento, executar o aplicativo e fornecendo uma visão geral de cada classe e sua funcionalidade.
